@@ -69,8 +69,8 @@ pub fn run() {
              .split_once(" -> ")
              .unwrap())
         .map(|p| {
-            let p1 = p.0.split_once(",").unwrap();
-            let p2 = p.1.split_once(",").unwrap();
+            let p1 = p.0.split_once(',').unwrap();
+            let p2 = p.1.split_once(',').unwrap();
             let point1 = (p1.0.parse().unwrap(), p1.1.parse().unwrap());
             let point2 = (p2.0.parse().unwrap(), p2.1.parse().unwrap());
             Line { p1: point1, p2: point2 }
@@ -87,7 +87,7 @@ pub fn run() {
 //  Puzzle 1
 // ----------
 
-fn puzzle_one(lines: &mut Vec<Line>, canvas: &mut Canvas) -> usize {
+fn puzzle_one(lines: &mut [Line], canvas: &mut Canvas) -> usize {
     lines
         .iter()
         .filter(|line| line.p1.0 == line.p2.0 || line.p1.1 == line.p2.1)
@@ -100,7 +100,7 @@ fn puzzle_one(lines: &mut Vec<Line>, canvas: &mut Canvas) -> usize {
 //  Puzzle 2
 // ----------
 
-fn puzzle_two(lines: &mut Vec<Line>, canvas: &mut Canvas) -> usize {
+fn puzzle_two(lines: &mut [Line], canvas: &mut Canvas) -> usize {
     lines
         .iter()
         .filter(|line| line.p1.0 != line.p2.0 && line.p1.1 != line.p2.1)
