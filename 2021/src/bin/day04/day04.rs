@@ -82,7 +82,7 @@ pub fn run() {
 //  Puzzle 1 + 2
 // --------------
 
-fn play(numbers: &[usize], boards: &mut Vec<Board>, rounds: usize) -> usize {
+fn play(numbers: &[usize], boards: &mut [Board], rounds: usize) -> usize {
     let mut play_count = 0;
 
     for &number in numbers {
