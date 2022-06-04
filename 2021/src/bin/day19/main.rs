@@ -1,6 +1,6 @@
 // ---------------------------------------------------
 //  Advent of Code 2021
-//  Day Beacon Scanner
+//  Day 19: Beacon Scanner
 //
 //  Copyright © 2021 Michael Fenske. See LICENSE.txt.
 // ---------------------------------------------------
@@ -10,9 +10,9 @@ mod day19;
 fn main() {
     let start_time = std::time::SystemTime::now();
 
-    println!("\n--------------------");
-    println!(" Day Beacon Scanner");
-    println!("--------------------");
+    println!("\n------------------------");
+    println!(" Day 19: Beacon Scanner");
+    println!("------------------------");
 
     day19::run();
 

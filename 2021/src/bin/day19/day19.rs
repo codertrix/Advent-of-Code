@@ -1,6 +1,6 @@
 // ---------------------------------------------------
 //  Advent of Code 2021
-//  Day Position Scanner
+//  Day 19: Beacon Scanner
 //
 //  Copyright © 2021 Michael Fenske. See LICENSE.txt.
 // ---------------------------------------------------
