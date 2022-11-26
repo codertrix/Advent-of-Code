@@ -62,7 +62,7 @@ fn explode_number(number: &str) -> Option<String> {
                 }
             }
             _ => {
-                if count < 5 && c.is_digit(10) && prev_c.is_ascii_punctuation() {
+                if count < 5 && c.is_ascii_digit() && prev_c.is_ascii_punctuation() {
                     num_idx = idx;
                 }
             }
@@ -84,7 +84,7 @@ fn explode_number(number: &str) -> Option<String> {
     if num_idx > 0 {
         let num_end_idx = num_idx + number[num_idx..]
             .chars()
-            .position(|c| !c.is_digit(10))
+            .position(|c| !c.is_ascii_digit())
             .unwrap();
         let num: u32 = number[num_idx..num_end_idx]
             .parse()
@@ -111,11 +111,11 @@ fn explode_number(number: &str) -> Option<String> {
         if count == 0 {
             exploded_number.push_str(&number[end_idx..]);
             break;
-        } else if c.is_digit(10) {
+        } else if c.is_ascii_digit() {
             num_idx = end_idx + idx;
             let num_end_idx = num_idx + number[num_idx..]
                 .chars()
-                .position(|c| !c.is_digit(10))
+                .position(|c| !c.is_ascii_digit())
                 .unwrap();
             let num: u32 = number[num_idx..num_end_idx]
                 .parse()
@@ -140,7 +140,7 @@ fn split_number(number: &str) -> Option<String> {
         .collect();
 
     for (idx, c) in chars.windows(2).enumerate() {
-        if c[0].is_digit(10) && c[1].is_digit(10) {
+        if c[0].is_ascii_digit() && c[1].is_ascii_digit() {
             let mut splited_number = String::from(&number[..idx]);
 
             let num: u32 = number[idx..idx + 2]
