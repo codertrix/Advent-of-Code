@@ -33,7 +33,7 @@ fn puzzle_one() -> usize {
 
     let gamma_rate = bit_counts
         .iter()
-        .fold(0, |x, &count| x * 2 + if count > threshold { 1 } else { 0 });
+        .fold(0, |x, &count| x * 2 + usize::from(count > threshold));
     let epsilon_rate = gamma_rate ^ 0b111111111111;
 
     gamma_rate * epsilon_rate

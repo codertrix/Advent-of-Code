@@ -16,7 +16,7 @@ pub fn run() {
         let octed = if octed > 64 { octed - 55 } else { octed - 48 };
 
         for mask in [8, 4, 2, 1] {
-            bits.push(if octed & mask > 0 { 1 } else { 0 });
+            bits.push((octed & mask > 0).into());
         }
     }
 
@@ -109,9 +109,9 @@ fn parse_packet(bits: &[usize], pos: &mut usize, packet_number: &mut usize, pack
                         .expect("Missing sub-packet!");
 
                     match type_id {
-                        5 => if a > b { 1 } else { 0 },
-                        6 => if a < b { 1 } else { 0 },
-                        7 => if a == b { 1 } else { 0 },
+                        5 => (a > b).into(),
+                        6 => (a < b).into(),
+                        7 => (a == b).into(),
                         _ => panic!("Unkown type id!")
                     }
                 }

@@ -49,7 +49,7 @@ pub fn run() {
                         if xx < min_x || xx > max_x || yy < min_y || yy > max_y {
                             idx += step % 2;
                         } else {
-                            idx += if image.contains(&(xx, yy)) { 1 } else { 0 }
+                            idx += usize::from(image.contains(&(xx, yy)));
                         }
                     }
                 }

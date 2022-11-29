@@ -15,7 +15,7 @@ pub fn run() {
         .map(|line| {
             line
                 .chars()
-                .map(|c| if c == '#' { 1 } else { 0 })
+                .map(|c| (c == '#').into())
                 .collect()
         })
         .collect();
