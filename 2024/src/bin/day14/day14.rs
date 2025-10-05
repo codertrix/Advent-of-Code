@@ -92,7 +92,7 @@ fn puzzle_two(robots: &[Robot]) -> i32 {
         count += n;
     }
 
-    let tree_height = (n + 1) / 2;
+    let tree_height = n.div_ceil(2);
 
     for seconds in 1.. {
         let mut aligned_robots = HashMap::new();
